@@ -1,13 +1,15 @@
+import React, { Component } from 'react'
+import GlobalFooter from './components/GlobalFooter/GlobalFooter'
+import GlobalHeader from './components/GlobalHeader/GlobalHeader'
+import { Container } from 'native-base'
+import { StackNavigator } from 'react-navigation'
 
-import React, { Component } from 'react';
-import { Platform, Text, View } from 'react-native';
-import styles from './app.styles'
-import gStyles from './src/styles/global.styles'
+class App extends Component {
 
-export default class App extends Component {
   render() {
     console.log('poops')
     return (
+<<<<<<< HEAD
       <View style={styles.container}>
         <Text style={gStyles.baseFont}>
           Welcome to React Native ll00!
@@ -19,3 +21,18 @@ export default class App extends Component {
     );
   }
 }
+=======
+      <Container>
+        <GlobalHeader openDrawer={ () => this.props.navigation.navigate('DrawerOpen') }/>
+        <GlobalFooter />
+      </Container>
+    );
+  }
+}
+
+export default StackNavigator({
+  Home: { screen: App }
+}, {
+  headerMode: 'none'
+})
+>>>>>>> master
