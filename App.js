@@ -7,7 +7,6 @@ import { StackNavigator } from 'react-navigation'
 class App extends Component {
 
   render() {
-    console.log('poops')
     return (
       <Container>
         <GlobalHeader openDrawer={ () => this.props.navigation.navigate('DrawerOpen') }/>
