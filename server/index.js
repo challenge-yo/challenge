@@ -23,5 +23,11 @@ app.get('/api/challenges', function(req, res){
         res.status(200).send(response)
     })
 })
+app.get('/api/categories', function(req, res){
+    app.get('db').get_categories().then( response => {
+        res.status(200).send(response)
+    })
+})
+
 
 app.listen( SERVER_PORT, () => console.log(`Listening on port: ${ SERVER_PORT }`) )

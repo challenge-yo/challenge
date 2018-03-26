@@ -10,7 +10,7 @@ class GlobalHeader extends Component {
     return (
         <Header>
           <Left>
-            <Button onPress={ this.props.openDrawer }>
+            <Button style={{backgroundColor: 'transparent'}}onPress={ this.props.openDrawer }>
               <Icon name='menu' />
             </Button>
           </Left>
@@ -18,7 +18,7 @@ class GlobalHeader extends Component {
             <Title>Home</Title>
           </Body>
           <Right>
-            <Button transparent>
+            <Button  transparent>
               <Icon name='person' />
             </Button>
           </Right>
