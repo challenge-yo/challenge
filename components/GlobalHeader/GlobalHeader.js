@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
+import { DrawerNavigator } from 'react-navigation'
 
-
-export default class GlobalHeader extends Component {
+class GlobalHeader extends Component {
 
 
   render() {
+
     return (
         <Header>
           <Left>
-            <Button transparent>
+            <Button onPress={ this.props.openDrawer }>
               <Icon name='menu' />
             </Button>
           </Left>
@@ -25,3 +26,5 @@ export default class GlobalHeader extends Component {
     );
   }
 }
+
+export default GlobalHeader

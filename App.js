@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
 import GlobalFooter from './components/GlobalFooter/GlobalFooter'
 import GlobalHeader from './components/GlobalHeader/GlobalHeader'
-import { Container } from 'native-base';
+import { Container } from 'native-base'
+import { StackNavigator } from 'react-navigation'
 
 class App extends Component {
 
   render() {
     return (
       <Container>
-        <GlobalHeader  />
+        <GlobalHeader openDrawer={ () => this.props.navigation.navigate('DrawerOpen') }/>
         <GlobalFooter />
       </Container>
     );
   }
 }
 
-export default App
+export default StackNavigator({
+  Home: { screen: App }
+}, {
+  headerMode: 'none'
+})
