@@ -7,8 +7,6 @@ const {SERVER_PORT, SERVER_SECRET, SERVER_BASE } = process.env
 
 const app = express()
 
-app.listen( SERVER_PORT, () => console.log(`Listening on port: ${ SERVER_PORT }`) )
-
 app.use( bodyParser.json() )
 
 app.use( session({
@@ -20,3 +18,10 @@ app.use( session({
 massive( SERVER_BASE ).then( db => {
     app.set('db', db)
 })
+app.get('/api/challenges', function(req, res){
+    app.get('db').get_challenges().then( response => {
+        res.status(200).send(response)
+    })
+})
+
+app.listen( SERVER_PORT, () => console.log(`Listening on port: ${ SERVER_PORT }`) )
