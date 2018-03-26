@@ -9,19 +9,6 @@ class App extends Component {
   render() {
     console.log('poops')
     return (
-<<<<<<< HEAD
-      <View style={styles.container}>
-        <Text style={gStyles.baseFont}>
-          Welcome to React Native ll00!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-      </View>
-    );
-  }
-}
-=======
       <Container>
         <GlobalHeader openDrawer={ () => this.props.navigation.navigate('DrawerOpen') }/>
         <GlobalFooter />
@@ -35,4 +22,3 @@ export default StackNavigator({
 }, {
   headerMode: 'none'
 })
->>>>>>> master
