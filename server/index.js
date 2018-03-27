@@ -20,3 +20,17 @@ app.use( session({
 massive( SERVER_BASE ).then( db => {
     app.set('db', db)
 })
+
+app.get('/api/auth', (req, res, next) => {
+    if (req.session.token) {
+        res.send( req.session.token )
+    } else {
+        res.send(false)
+    }
+})
+
+app.get('/api/login/:id', (req, res) => {
+    console.log( req.session.id )
+        req.session.token = req.params.id
+        res.send( req.session.token )
+})
