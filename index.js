@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import GlobalDrawer from './components/GlobalDrawer/GlobalDrawer'
+import GlobalNavigator from './components/GlobalDrawer/GlobalNavigator'
 
-AppRegistry.registerComponent('challenge', () => GlobalDrawer)
+AppRegistry.registerComponent('challenge', () => GlobalNavigator)

@@ -6,20 +6,16 @@ import { StackNavigator } from 'react-navigation'
 import One from './components/Screens/FakeScreens/One'
 import ChallengeList from './components/Screens/ChallengeLists/ChallengeLists'
 
+import Home from './components/Screens/Home/Home'
+import LoginScreen from './components/Screens/LoginScreen/LoginScreen'
+
 class App extends Component {
   render() {
     return (
       <Container>
-        <GlobalHeader openDrawer={ () => this.props.navigation.navigate('DrawerOpen') }/>
         <GlobalFooter />
       </Container>
     );
   }
 }
-export default StackNavigator({
-  Home: { screen: App },
-  One: { screen: One }
-}, {
-  headerMode: 'none'
-})
-
+export default App

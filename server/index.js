@@ -19,20 +19,6 @@ massive( SERVER_BASE ).then( db => {
     app.set('db', db)
 })
 
-app.get('/api/auth', (req, res, next) => {
-    if (req.session.token) {
-        res.send( req.session.token )
-    } else {
-        res.send(false)
-    }
-})
-
-app.get('/api/login/:id', (req, res) => {
-    console.log( req.session.id )
-        req.session.token = req.params.id
-        res.send( req.session.token )
-})
-
 app.get('/api/challenges', function(req, res){
     app.get('db').get_challenges().then( response => {
         res.status(200).send(response)
@@ -43,5 +29,16 @@ app.get('/api/categories', function(req, res){
         res.status(200).send(response)
     })
 })
+
+app.get('/api/user', function(req, res) {
+    req.session.profile ? res.send( true ) : res.send( null )
+})
+
+app.post('/api/login/', function(req, res) {
+    req.session.profile = req.body.profile
+    console.log( req.session.profile)
+    res.send( true )
+})
+
 
 app.listen( SERVER_PORT, () => console.log(`Listening on port: ${ SERVER_PORT }`) )
