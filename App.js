@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-
-
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-
-
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js taco
-        </Text>
-      </View>
-=======
 import React, { Component } from 'react'
 import GlobalFooter from './components/GlobalFooter/GlobalFooter'
 import GlobalHeader from './components/GlobalHeader/GlobalHeader'
@@ -35,7 +11,6 @@ class App extends Component {
         <GlobalHeader openDrawer={ () => this.props.navigation.navigate('DrawerOpen') }/>
         <GlobalFooter />
       </Container>
->>>>>>> master
     );
   }
 }

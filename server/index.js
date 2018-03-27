@@ -29,5 +29,37 @@ app.get('/api/categories', function(req, res){
     })
 })
 
+app.get('/api/friends', function(req, res){
+    app.get('db').get_friends().then( response => {
+        res.status(200).send(response)
+    })
+})
+
+app.get('/api/confirm', function(req, res){
+    app.get('db').confirm_needed().then( response => {
+        res.status(200).send(response)
+    })
+})
+
+app.post('/api/addfriend', function (req, res){
+    console.log(req.body.id)
+    app.get('db').add_friends([req.body.id, req.body.id2]).then(response => {
+        res.status(200).send(response) 
+    })
+})
+
+app.post('/api/confirmfriend', function (req, res){
+    console.log(req.body.id)
+    app.get('db').confirm_friends([req.body.id, req.body.id2]).then(response => {
+        res.status(200).send(response) 
+    })
+})
+
+app.post('/api/declinefriend', function (req, res){
+    console.log(req.body.id)
+    app.get('db').decline_friends([req.body.id, req.body.id2]).then(response => {
+        res.status(200).send(response) 
+    })
+})
 
 app.listen( SERVER_PORT, () => console.log(`Listening on port: ${ SERVER_PORT }`) )
