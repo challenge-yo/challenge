@@ -18,6 +18,7 @@ app.use( session({
 massive( SERVER_BASE ).then( db => {
     app.set('db', db)
 })
+
 app.get('/api/challenges', function(req, res){
     app.get('db').get_challenges().then( response => {
         res.status(200).send(response)
@@ -60,6 +61,16 @@ app.post('/api/declinefriend', function (req, res){
     app.get('db').decline_friends([req.body.id, req.body.id2]).then(response => {
         res.status(200).send(response) 
     })
+})
+
+app.get('/api/user', function(req, res) {
+    req.session.profile ? res.send( true ) : res.send( null )
+})
+
+app.post('/api/login/', function(req, res) {
+    req.session.profile = req.body.profile
+    console.log( req.session.profile)
+    res.send( true )
 })
 
 app.listen( SERVER_PORT, () => console.log(`Listening on port: ${ SERVER_PORT }`) )

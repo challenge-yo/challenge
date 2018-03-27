@@ -1,8 +1,8 @@
 import React from 'react'
-import { Text } from 'native-base';
+import { Text, Button } from 'native-base';
 
 export default function One() {
     return(
-        <Text>One</Text>
+        <Button onPress={ () => this.props.navigation.navigate('Two') }><Text>Click Me</Text></Button>
     )
 }
