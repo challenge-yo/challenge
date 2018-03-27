@@ -4,14 +4,14 @@ import { Container, Content, Footer, FooterTab, Button, Icon, Text, Card, CardIt
 import { TabNavigator, TabBarBottom } from 'react-navigation'
 import Home from '../Screens/Home/Home'
 import One from '../Screens/FakeScreens/One'
-import Challenges from '../Screens/Challenges/Challenges'
+import Challenges from '../Screens/ChallengeLists/ChallengeLists'
 import Three from '../Screens/FakeScreens/Three'
 import Four from '../Screens/FakeScreens/Four'
 import Categories from '../list/Categories/Categories'
 
 export default GlobalFooter = TabNavigator({
     Home: { screen: Home },
-    One: { screen: One },
+    Challenges: { screen: Challenges },
     Categories: { screen: Categories},
     Three: { screen: Three },
     Four: { screen: Four }

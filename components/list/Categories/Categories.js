@@ -16,14 +16,14 @@ export default class Category extends Component{
         this.getCategories()
     }
       getCategories(){
-          axios.get('http://192.168.3.139:3005/api/categories').then(response => {
+          axios.get('http://192.168.0.19:3005/api/categories').then(response => {
             this.setState({categories: response.data})
           })
       }
 
   render() {
     const categories = this.state.categories.map((category, i) => {
-        return <CategoryCard key={i} nav={()=>this.props.navigation.navigate("Three")}category={category.category} icon={category.badge}/>
+        return <CategoryCard key={i} nav={()=>this.props.navigation.navigate("Challenges")}category={category.category} icon={category.badge}/>
     })
    
     return (
