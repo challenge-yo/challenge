@@ -20,7 +20,7 @@ export default class ChallengeLists extends Component{
     }
 
     getChallenges(){
-        axios.get('http://192.168.0.19:3005/api/challenges').then(response => {
+        axios.get('http://192.168.3.139:3005/api/challenges').then(response => {
           this.setState({challenges: response.data})
         })
       }
