@@ -4,9 +4,9 @@ import GlobalHeader from './components/GlobalHeader/GlobalHeader'
 import { Container } from 'native-base'
 import { StackNavigator } from 'react-navigation'
 import One from './components/Screens/FakeScreens/One'
+import ChallengeList from './components/Screens/ChallengeLists/ChallengeLists'
 
 class App extends Component {
-
   render() {
     return (
       <Container>
@@ -16,10 +16,10 @@ class App extends Component {
     );
   }
 }
-
 export default StackNavigator({
   Home: { screen: App },
   One: { screen: One }
 }, {
   headerMode: 'none'
 })
+

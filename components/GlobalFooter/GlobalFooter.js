@@ -4,14 +4,15 @@ import { Container, Content, Footer, FooterTab, Button, Icon, Text, Card, CardIt
 import { TabNavigator, TabBarBottom } from 'react-navigation'
 import Home from '../Screens/Home/Home'
 import One from '../Screens/FakeScreens/One'
-import Two from '../Screens/FakeScreens/Two'
+import Challenges from '../Screens/Challenges/Challenges'
 import Three from '../Screens/FakeScreens/Three'
 import Four from '../Screens/FakeScreens/Four'
+import Categories from '../list/Categories/Categories'
 
 export default GlobalFooter = TabNavigator({
     Home: { screen: Home },
     One: { screen: One },
-    Two: { screen: Two },
+    Categories: { screen: Categories},
     Three: { screen: Three },
     Four: { screen: Four }
 }, {
@@ -29,7 +30,7 @@ export default GlobalFooter = TabNavigator({
               <Button
                 vertical
                 active={props.navigationState.index === 2}
-                onPress={() => props.navigation.navigate("Two")}>
+                onPress={() => props.navigation.navigate("Categories")}>
                 <Icon name="medal" />
               </Button>
               <Button
