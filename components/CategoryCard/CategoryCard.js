@@ -6,9 +6,9 @@ import { Button, Text } from 'react-native'
 export default class ChallengeCard extends Component{
     
 render() {
-    return (    <ListItem button onPress={this.props.nav}>
+    return (    <ListItem style={{height: 78}}button onPress={this.props.nav}>
                 <Body>
-                    <Text>{this.props.category}</Text>
+                    <Text style={{fontSize: 20, fontWeight: '900'}}>{this.props.category}</Text>
                 </Body>
                 <Right>
                     <Thumbnail source={{ uri: this.props.icon}} />

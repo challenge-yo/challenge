@@ -29,6 +29,17 @@ app.get('/api/categories', function(req, res){
         res.status(200).send(response)
     })
 })
+app.get('/api/challengeByCategory/:category', function( req, res ) {
+    app.get('db').select_challenges_by_category([req.params.category]).then( response => {
+        res.status(200).send(response)
+    })
+})
+app.get('/api/specificChallenge/:id', function( req, res ) {
+    console.log('hit')
+    app.get('db').select_specific_challenge([req.body.id]).then( response => {
+        res.status(200).send(response)
+    })
+})
 
 app.get('/api/friends', function(req, res){
     app.get('db').get_friends().then( response => {

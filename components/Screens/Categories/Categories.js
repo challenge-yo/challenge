@@ -12,7 +12,7 @@ export default class Category extends Component{
             categories: []
         }
     }
-    componentDidMount(){
+      componentDidMount(){
         this.getCategories()
     }
       getCategories(){
@@ -20,17 +20,13 @@ export default class Category extends Component{
             this.setState({categories: response.data})
           })
       }
-
   render() {
+      
     const categories = this.state.categories.map((category, i) => {
-        return <CategoryCard key={i} nav={()=>this.props.navigation.navigate("Three")}category={category.category} icon={category.badge}/>
-    })
-   
-    return (
+        return <CategoryCard key={i} nav={()=>this.props.navigation.navigate('Challenges', {category: category.category})} category={category.category} icon={category.badge}/>
+    })                                     
+return (
         <List>{categories}</List>
-    )
-  }
+        )
+    }
 }
-
-
-
