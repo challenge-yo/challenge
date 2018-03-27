@@ -2,8 +2,8 @@ import React from 'react'
 import { StackNavigator } from 'react-navigation'
 import App from '../../App'
 import LoginScreen from '../Screens/LoginScreen/LoginScreen';
-import ChallengeList from '../Screens/ChallengeLists/ChallengeLists'
-import Categories from '../Screens/Categories/Categories'
+import ChallengeLists from '../Screens/ChallengeLists/ChallengeLists'
+import Category from '../Screens/Categories/Categories'
 
 // Fake screens
 
@@ -16,8 +16,8 @@ import Four from '../Screens/FakeScreens/Four'
 export default StackNavigator({
     Home: { screen: App },
     Login: { screen: LoginScreen },
-    ChallengeList: { screen: ChallengeList },
-    Categories: { screen: Categories },
+    ChallengeList: { screen: ChallengeLists },
+    Categories: { screen: Category },
     One: { screen: One },
     Two: { screen: Two },
     Three: { screen: Three },

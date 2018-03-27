@@ -36,7 +36,7 @@ app.get('/api/challengeByCategory/:category', function( req, res ) {
 })
 app.get('/api/specificChallenge/:id', function( req, res ) {
     console.log('hit')
-    app.get('db').select_specific_challenge([req.body.id]).then( response => {
+    app.get('db').select_specific_challenge([req.params.id]).then( response => {
         res.status(200).send(response)
     })
 })

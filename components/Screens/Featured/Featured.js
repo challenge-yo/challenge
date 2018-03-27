@@ -21,7 +21,7 @@ export default class Category extends Component{
       getSpecificChallenge(){
         const { params } = this.props.navigation.state
         const id = params.id
-        // console.warn(id)
+        console.warn(id)
         axios.get(`http://192.168.3.139:3005/api/specificChallenge/${id}`).then(response => {
           this.setState({challenges: response.data})
         })
