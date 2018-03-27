@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import GlobalFooter from './components/GlobalFooter/GlobalFooter'
 import GlobalHeader from './components/GlobalHeader/GlobalHeader'
@@ -12,7 +11,6 @@ class App extends Component {
         <GlobalHeader openDrawer={ () => this.props.navigation.navigate('DrawerOpen') }/>
         <GlobalFooter />
       </Container>
-
     );
   }
 }
