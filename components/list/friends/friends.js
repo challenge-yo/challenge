@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, List, ListItem, Left, Icon, Body, Right, Thumbnail } from 'native-base';
-import { Button, Text } from 'react-native';
+import { Button, Container, Header, Content, List, ListItem, Left, Icon, Body, Right, Thumbnail, Text } from 'native-base';
 import axios from 'axios';
 
 class FriendsCard extends Component {
@@ -39,23 +38,25 @@ class FriendsCard extends Component {
 
             <Body>
                 <Text>{this.props.friend}</Text>
-                <Button onPress={() => this.props.title === 'Add Friend' ? this.addFriend() : this.confirmFriend()}
+                <Button success onPress={() => this.props.title === 'Add Friend' ? this.addFriend() : this.confirmFriend()}
 
                     title={this.props.title}>
-                    <Icon name="add" />
+                    <Icon name="add-circle" />
+                    <Text style={{color: 'black'}}>Accept </Text>
                 </Button>
+                {this.props.title !== 'Add Friend' ? <Button danger onPress={() => this.declineFriend()}>
+
+                       <Icon name='close-circle'/>
+                       <Text style={{color: 'black'}}>DECLINE</Text>
+
+                </Button> : null}
             </Body>
             <Right>
-                {this.props.title !== 'Add Friend' ? <Button onPress={() => this.declineFriend()}
 
-                    title='Decline'>
-                    <Icon name="minus" />
-                </Button> : null}
 
 
 
             </Right>
-
         </ListItem>
         )
     }
