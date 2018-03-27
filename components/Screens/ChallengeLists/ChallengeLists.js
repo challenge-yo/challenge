@@ -17,13 +17,17 @@ export default class ChallengeLists extends Component{
     componentDidMount(){
         this.categorizeChallenges()
     }
-    
+  
     categorizeChallenges(){
         const { params } = this.props.navigation.state
         const category = params.category
         // console.warn(category)
         axios.get(`http://192.168.3.139:3005/api/challengeByCategory/${category}`).then(response => {
             this.setState({challenges: response.data})
+
+    getChallenges(){
+        axios.get('http://192.168.3.84:3005/api/challenges').then(response => {
+          this.setState({challenges: response.data})
         })
     }
     
