@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Container, Header, Content, List, ListItem, Left, Icon, Body, Right, Thumbnail, Text } from 'native-base';
 import axios from 'axios';
+import {IP} from './../../../ip';
 
 class FriendsCard extends Component {
     constructor() {
@@ -11,19 +12,19 @@ class FriendsCard extends Component {
     }
 
     addFriend() {
-        axios.post(`http://192.168.3.84:3005/api/addfriend`, {
+        axios.post(`${IP}/api/addfriend`, {
             id: this.props.id, id2: this.props.id2
         }).then(res => { console.warn('You got so many friends!') })
     }
 
     confirmFriend() {
-        axios.post(`http://192.168.3.84:3005/api/confirmfriend`, {
+        axios.post(`${IP}/api/confirmfriend`, {
             id: this.props.id, id2: this.props.id2
         }).then(res => { console.warn('You confirmed your friend!') })
     }
 
     declineFriend() {
-        axios.post(`http://192.168.3.84:3005/api/declinefriend`, {
+        axios.post(`${IP}/api/declinefriend`, {
             id: this.props.id, id2: this.props.id2
         }).then(res => { console.warn('You have enough friends!') })
     }

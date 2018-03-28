@@ -3,6 +3,7 @@ import { Container, Button, Text } from 'native-base'
 import Auth0 from 'react-native-auth0'
 import axios from 'axios'
 import { AsyncStorage } from 'react-native'
+import {IP} from './../../../ip'
 
 const auth0 = new Auth0({ domain: 'test-new.auth0.com', clientId: 'PFmPSI2W6Hmsi14OH8J5xBWXe9F5z5E6' });
 
@@ -58,7 +59,7 @@ class LoginScreen extends Component {
                         AsyncStorage.setItem('UserData', JSON.stringify(resp.data))
 
                         // posts profile to our server here which then creates a new session 
-                        axios.post(`http://192.168.1.26:3005/api/login/`, {
+                        axios.post(`${IP}/api/login/`, {
                             profile: resp.data
                         }).then( resp => {
                             console.log( resp.data )

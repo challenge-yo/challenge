@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {  List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
 import axios from 'axios';
 import FriendsCard from './../../list/friends/friends';
+import {IP} from './../../../ip'
 
 
 export default class Four extends Component {
@@ -20,13 +21,13 @@ export default class Four extends Component {
     }
 
     getFriends(){
-        axios.get('http://192.168.3.84:3005/api/friends').then(res => {
+        axios.get(`${IP}/api/friends`).then(res => {
             this.setState({data:res.data})
          })
         }  
 
         confirmFriends(){
-            axios.get('http://192.168.3.84:3005/api/confirm').then(res => {
+            axios.get(`${IP}/api/confirm`).then(res => {
                 this.setState({data2:res.data})
              })
             }  

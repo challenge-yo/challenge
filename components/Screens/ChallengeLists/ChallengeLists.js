@@ -5,6 +5,7 @@ import Categories from '../../list/Categories/Categories'
 import ChallengeCard from '../../ChallengeCard/ChallengeCard'
 import CategoryCard from '../../CategoryCard/CategoryCard'
 import axios from 'axios'
+import {IP} from './../../../ip'
 
 export default class ChallengeLists extends Component{
     constructor(props){
@@ -20,7 +21,7 @@ export default class ChallengeLists extends Component{
     }
 
     getChallenges(){
-        axios.get('http://192.168.3.84:3005/api/challenges').then(response => {
+        axios.get(`${IP}/api/challenges`).then(response => {
           this.setState({challenges: response.data})
         })
       }

@@ -3,6 +3,7 @@ import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnai
 import { Button, StyleSheet } from 'react-native'
 import CategoryCard from '../../CategoryCard/CategoryCard'
 import axios from 'axios'
+import {IP} from './../../../ip'
 
 export default class Category extends Component{
     constructor(props){
@@ -16,7 +17,7 @@ export default class Category extends Component{
         this.getCategories()
     }
       getCategories(){
-          axios.get('http://192.168.3.139:3005/api/categories').then(response => {
+          axios.get(`${IP}/api/categories`).then(response => {
             this.setState({categories: response.data})
           })
       }

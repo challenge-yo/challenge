@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
+import {IP} from './../../../ip'
+// import ProfileCard from './../'
+
 
 class Profile extends Component {
     constructor() {
@@ -11,18 +14,23 @@ class Profile extends Component {
         }
     }
 
-componentDidMount(){
-    getProfile()
-}
+// componentDidMount(){
+//     getProfile()
+// }
 
-getProfile(){
-
-        axios.get(`http://192.168.3.84:3005/api/getprofile`, {
+// getProfile(){
+//         axios.get(`${IP}/api/getprofile`, {
             
-        }).then(res => { console.warn('You got your profile, you stud!!', res.data) })
-} //this.setState({profile:res.data})
+//         }).then(res => { console.warn('You got your profile, you stud!!', res.data) })
+// } //this.setState({profile:res.data})
 
     render() {
+
+        // const user = this.state.data.map((friend, i) => {
+        //     return <ProfileCard key={i} title="Add Friend" user={user.user_name} icon={user.image} score={user.score} />
+        // })
+    
+
         return (
             <Content>
                 <Text>Three</Text>
@@ -53,7 +61,7 @@ getProfile(){
                         </Left>
                     </CardItem>
                 </Card> 
-                 <Button success title="Validate Friends">
+                 <Button block success title="Validate Friends">
                  <Text style={{color: 'black'}}>Validate Friends</Text>
             </Button>  
   
