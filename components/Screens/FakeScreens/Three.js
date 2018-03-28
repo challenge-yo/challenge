@@ -17,7 +17,7 @@ componentDidMount(){
 
 getProfile(){
 
-        axios.get(`http://192.168.3.84:3005/api/getprofile`, {
+        axios.get(`http://192.168.3.139:3005/api/getprofile`, {
             
         }).then(res => { console.warn('You got your profile, you stud!!', res.data) })
 } //this.setState({profile:res.data})

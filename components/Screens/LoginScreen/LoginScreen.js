@@ -19,6 +19,7 @@ class LoginScreen extends Component {
     componentDidMount() {
         this.isLoggedIn()
     }
+    
 
     async isLoggedIn() {
         const response = await AsyncStorage.getItem('UserData')

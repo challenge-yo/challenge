@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
-import { Button, Text } from 'react-native'
+import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Icon, Button } from 'native-base';
+import { Text } from 'react-native'
 import Categories from '../../Screens/Categories/Categories'
 import ChallengeCard from '../../ChallengeCard/ChallengeCard'
 import CategoryCard from '../../CategoryCard/CategoryCard'
@@ -21,7 +21,6 @@ export default class ChallengeLists extends Component{
     categorizeChallenges(){
         const { params } = this.props.navigation.state
         const category = params.category
-        // console.warn(category)
         axios.get(`http://192.168.3.139:3005/api/challengeByCategory/${category}`).then(response => {
             this.setState({challenges: response.data})
     })}
@@ -36,7 +35,10 @@ export default class ChallengeLists extends Component{
 
     return (
       <Container>
-          <List>{challenges}</List>
+         
+          <Button light style={{backgroundColor: 'transparent'}}onPress={() => this.props.navigation.navigate('Categories')}><Icon name='arrow-back' /></Button>
+  
+          {challenges}
 
           
         </Container> 
