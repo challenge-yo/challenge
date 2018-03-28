@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
-import { Button, Text } from 'react-native'
-import Categories from '../../list/Categories/Categories'
+import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Icon, Button } from 'native-base';
+import { Text } from 'react-native'
+import Categories from '../../Screens/Categories/Categories'
 import ChallengeCard from '../../ChallengeCard/ChallengeCard'
 import CategoryCard from '../../CategoryCard/CategoryCard'
 import axios from 'axios'
@@ -12,13 +12,16 @@ export default class ChallengeLists extends Component{
         super(props)
 
         this.state = {
-            challenges: [],
-            categories: []
+            challenges: []
         }
     }
     componentDidMount(){
-        this.getChallenges()
+        this.categorizeChallenges()
     }
+  
+    categorizeChallenges(){
+        const { params } = this.props.navigation.state
+        const category = params.category
 
     getChallenges(){
         axios.get(`${IP}/api/challenges`).then(response => {
@@ -27,16 +30,20 @@ export default class ChallengeLists extends Component{
       }
 
   render() {
+  
     const challenges =  this.state.challenges.map((challenge, i) => {
-        return <ChallengeCard key={i} name={challenge.challenge_name} category={challenge.category} difficulty={challenge.difficulty}
+        return <ChallengeCard key={i} nav={()=>this.props.navigation.navigate('Featured', {id: challenge.id})}name={challenge.challenge_name} category={challenge.category} difficulty={challenge.difficulty}
         time={challenge.due_time} icon={challenge.badge} description={challenge.description}/> 
-        console.warn(challenge.badge)
     })
-
 
     return (
       <Container>
-          <List>{challenges}</List>
+         
+          <Button light style={{backgroundColor: 'transparent'}}onPress={() => this.props.navigation.navigate('Categories')}><Icon name='arrow-back' /></Button>
+  
+          {challenges}
+
+          
         </Container> 
     );
   }

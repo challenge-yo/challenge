@@ -4,12 +4,14 @@ import Auth0 from 'react-native-auth0'
 import axios from 'axios'
 import { AsyncStorage } from 'react-native'
 import {IP} from './../../../ip'
+import { StackNavigator } from 'react-navigation'
+import Home from '../../Screens/Home/Home'
 
 const auth0 = new Auth0({ domain: 'test-new.auth0.com', clientId: 'PFmPSI2W6Hmsi14OH8J5xBWXe9F5z5E6' });
 
 class LoginScreen extends Component {
-    constructor() {
-        super()
+    constructor( props ) {
+        super( props )
 
         this.state = {
             loggedIn: null,
@@ -17,8 +19,17 @@ class LoginScreen extends Component {
         }
     }
 
+    static navigationOptions = {
+        header: null
+    }
+
     componentDidMount() {
         this.isLoggedIn()
+    }
+    
+
+    componentWillUpdate() {
+        this.navigate()
     }
 
     async isLoggedIn() {
@@ -32,6 +43,10 @@ class LoginScreen extends Component {
         }
     }
 
+    navigate() {
+        this.props.navigation.navigate('Home')
+    }
+
     render() {
 
         return(
@@ -39,7 +54,7 @@ class LoginScreen extends Component {
 
             {
 
-               this.state.loggedIn === true ? this.props.navigation.navigate('Home') :
+               this.state.loggedIn === true ? this.navigate() :
 
                 <Button onPress={ () =>     
                 // authorize person with Auth0            
@@ -56,13 +71,23 @@ class LoginScreen extends Component {
                             profile: resp.data
                         })
 
+                        // Adds to persistant storage on device
                         AsyncStorage.setItem('UserData', JSON.stringify(resp.data))
 
                         // posts profile to our server here which then creates a new session 
+<<<<<<< HEAD
                         axios.post(`${IP}/api/login/`, {
+=======
+                        axios.post(`http://192.168.3.139:3005/api/login/`, {
+>>>>>>> master
                             profile: resp.data
                         }).then( resp => {
                             console.log( resp.data )
+                        })
+
+                        // posts profile to our database 
+                        axios.post('http://192.168.1.26:3005/api/newuser/', {
+                            profile: resp.data 
                         })
                     })
 

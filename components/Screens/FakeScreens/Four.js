@@ -26,6 +26,7 @@ export default class Four extends Component {
          })
         }  
 
+
         confirmFriends(){
             axios.get(`${IP}/api/confirm`).then(res => {
                 this.setState({data2:res.data})

@@ -29,6 +29,17 @@ app.get('/api/categories', function(req, res){
         res.status(200).send(response)
     })
 })
+app.get('/api/challengeByCategory/:category', function( req, res ) {
+    app.get('db').select_challenges_by_category([req.params.category]).then( response => {
+        res.status(200).send(response)
+    })
+})
+app.get('/api/specificChallenge/:id', function( req, res ) {
+    console.log('hit')
+    app.get('db').select_specific_challenge([req.params.id]).then( response => {
+        res.status(200).send(response)
+    })
+})
 
 app.get('/api/friends', function(req, res){
     app.get('db').get_friends().then( response => {
@@ -75,6 +86,12 @@ app.post('/api/login/', function(req, res) {
     req.session.profile = req.body.profile
     console.log( req.session.profile)
     res.send( true )
+})
+
+app.post('/api/newuser', function(req, res) {
+    app.get('db').create_user([req.body.profile.sub, req.body.profile.nickname, req.body.profile.given_name, req.body.profile.family_name, req.body.profile.picture, req.body.profile.email, req.body.profile.sub]).then( resp => {
+        res.status(200).send(resp)
+    })
 })
 
 app.listen( SERVER_PORT, () => console.log(`Listening on port: ${ SERVER_PORT }`) )
