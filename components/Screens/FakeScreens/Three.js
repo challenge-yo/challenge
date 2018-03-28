@@ -1,7 +1,7 @@
-
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
+import axios from 'axios'
 
 class Profile extends Component {
     constructor() {
@@ -12,7 +12,7 @@ class Profile extends Component {
     }
 
 componentDidMount(){
-    getProfile()
+    this.getProfile()
 }
 
 getProfile(){
