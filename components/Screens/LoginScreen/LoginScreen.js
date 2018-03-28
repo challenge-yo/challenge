@@ -75,18 +75,14 @@ class LoginScreen extends Component {
                         AsyncStorage.setItem('UserData', JSON.stringify(resp.data))
 
                         // posts profile to our server here which then creates a new session 
-<<<<<<< HEAD
                         axios.post(`${IP}/api/login/`, {
-=======
-                        axios.post(`http://192.168.3.139:3005/api/login/`, {
->>>>>>> master
                             profile: resp.data
                         }).then( resp => {
                             console.log( resp.data )
                         })
 
                         // posts profile to our database 
-                        axios.post('http://192.168.1.26:3005/api/newuser/', {
+                        axios.post(`${IP}/api/newuser/`, {
                             profile: resp.data 
                         })
                     })

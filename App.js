@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import GlobalFooter from './components/GlobalFooter/GlobalFooter'
 import GlobalHeader from './components/GlobalHeader/GlobalHeader'
 import LoginScreen from './components/Screens/LoginScreen/LoginScreen'
 import { Container } from 'native-base'
