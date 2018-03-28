@@ -1,33 +1,33 @@
 import React, { Component } from 'react'
-import { Container } from 'native-base';
-import Auth0 from 'react-native-auth0';
+import { Container, Button, Text } from 'native-base'
+import Auth0 from 'react-native-auth0'
+import axios from 'axios'
+import ChallengeCard from '../../ChallengeCard/ChallengeCard'
+import { AsyncStorage } from 'react-native'
 
-const auth0 = new Auth0({ domain: 'test-new.auth0.com', clientId: '2C7eSJXY0-S5jUiT_S9D-vRD55ki2gJy' });
+import GlobalHeader from '../../GlobalHeader/GlobalHeader'
+
+const auth0 = new Auth0({ domain: 'test-new.auth0.com', clientId: 'PFmPSI2W6Hmsi14OH8J5xBWXe9F5z5E6' });
 
 class Home extends Component {
+
+
+    componentDidMount() {
+        this.isLoggedIn()
+    }
+
+    async isLoggedIn() {
+        const response = await AsyncStorage.getItem('UserData')
+        const profile = await response
+
+        if (profile === null) {
+            this.props.navigation.navigate('LoginScreen')
+        }
+    }
+
     render() {
-
-        const loggedIn = true
-
         return(
             <Container>
-
-                { !loggedIn ? 
-
-                 auth0
-                    .webAuth
-                    .authorize({scope: 'openid profile email', audience: 'https://test-new.auth0.com/userinfo'})
-                    .then( credentials => {
-                        // hit our server endpoint here
-                        console.log( credentials )
-                    })
-                    .catch( err => {
-                        console.err( err )
-                    })
-                
-
-                : null
-                }
             </Container>
         )
     }

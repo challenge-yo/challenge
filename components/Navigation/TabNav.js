@@ -1,19 +1,22 @@
-import React, { Component } from 'react'
-import { Image } from 'react-native'
-import { Container, Content, Footer, FooterTab, Button, Icon, Text, Card, CardItem } from 'native-base';
-import { TabNavigator, TabBarBottom } from 'react-navigation'
+import React, { Component } from 'react';
+import { TabNavigator, TabView } from 'react-navigation'
+import { Footer, FooterTab, Button, Icon } from 'native-base'
+
+// Views 
+
+import StackNav from './StackNav'
 import Home from '../Screens/Home/Home'
-import One from '../Screens/FakeScreens/One'
-import Two from '../Screens/FakeScreens/Two'
+import Category from '../Screens/Categories/Categories'
 import Three from '../Screens/FakeScreens/Three'
 import Four from '../Screens/FakeScreens/Four'
+import LoginScreen from '../Screens/LoginScreen/LoginScreen'
 
-export default GlobalFooter = TabNavigator({
+const TabNav = TabNavigator({
+    Stack: { screen: StackNav },
     Home: { screen: Home },
-    One: { screen: One },
-    Two: { screen: Two },
+    Category: { screen: Category },
     Three: { screen: Three },
-    Four: { screen: Four }
+    Four: { screen: Four },
 }, {
     tabBarPosition: 'bottom',
     tabBarComponent: props => {
@@ -28,19 +31,19 @@ export default GlobalFooter = TabNavigator({
               </Button>
               <Button
                 vertical
-                active={props.navigationState.index === 2}
-                onPress={() => props.navigation.navigate("Two")}>
+                active={props.navigationState.index === 1}
+                onPress={() => props.navigation.navigate("Category")}>
                 <Icon name="medal" />
               </Button>
               <Button
                 vertical
-                active={props.navigationState.index === 3}
+                active={props.navigationState.index === 2}
                 onPress={() => props.navigation.navigate("Three")}>
                 <Icon name="person" />
               </Button>
               <Button
                 vertical
-                active={props.navigationState.index === 4}
+                active={props.navigationState.index === 3}
                 onPress={() => props.navigation.navigate("Four")}>
                 <Icon name="people" />
               </Button>
@@ -49,3 +52,5 @@ export default GlobalFooter = TabNavigator({
         );
     }
 })
+
+export default TabNav;
