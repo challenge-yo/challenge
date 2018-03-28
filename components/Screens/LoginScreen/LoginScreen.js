@@ -25,6 +25,7 @@ class LoginScreen extends Component {
     componentDidMount() {
         this.isLoggedIn()
     }
+    
 
     componentWillUpdate() {
         this.navigate()
@@ -73,7 +74,7 @@ class LoginScreen extends Component {
                         AsyncStorage.setItem('UserData', JSON.stringify(resp.data))
 
                         // posts profile to our server here which then creates a new session 
-                        axios.post(`http://192.168.1.26:3005/api/login/`, {
+                        axios.post(`http://192.168.3.139:3005/api/login/`, {
                             profile: resp.data
                         }).then( resp => {
                             console.log( resp.data )

@@ -20,16 +20,18 @@ export default class Four extends Component {
     }
 
     getFriends(){
-        axios.get('http://172.19.245.84:3005/api/friends').then(res => {
+
+        axios.get('http://192.168.3.139:3005/api/friends').then(res => {
             this.setState({data:res.data})
          })
         }  
 
-    confirmFriends(){
-        axios.get('http://172.19.245.84:3005/api/confirm').then(res => {
-            this.setState({data2:res.data})
-         })
-        }  
+
+        confirmFriends(){
+            axios.get('http://192.168.3.139:3005/api/confirm').then(res => {
+                this.setState({data2:res.data})
+             })
+            }  
        
   render() { 
     const friends = this.state.data.map((friend, i) => {
