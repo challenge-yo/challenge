@@ -84,4 +84,10 @@ app.post('/api/login/', function(req, res) {
     res.send( true )
 })
 
+app.post('/api/newuser', function(req, res) {
+    app.get('db').create_user([req.body.profile.sub, req.body.profile.nickname, req.body.profile.given_name, req.body.profile.family_name, req.body.profile.picture, req.body.profile.email, req.body.profile.sub]).then( resp => {
+        res.status(200).send(resp)
+    })
+})
+
 app.listen( SERVER_PORT, () => console.log(`Listening on port: ${ SERVER_PORT }`) )
