@@ -21,6 +21,7 @@ export default class ChallengeLists extends Component{
     categorizeChallenges(){
         const { params } = this.props.navigation.state
         const category = params.category
+
         axios.get(`http://192.168.3.139:3005/api/challengeByCategory/${category}`).then(response => {
             this.setState({challenges: response.data})
     })}

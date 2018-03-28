@@ -16,7 +16,7 @@ export default class Category extends Component{
         this.getCategories()
     }
       getCategories(){
-          axios.get('http://192.168.3.139:3005/api/categories').then(response => {
+          axios.get('http://172.19.245.84:3005/api/categories').then(response => {
             this.setState({categories: response.data})
           })
       }

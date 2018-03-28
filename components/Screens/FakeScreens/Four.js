@@ -20,10 +20,12 @@ export default class Four extends Component {
     }
 
     getFriends(){
+
         axios.get('http://192.168.3.139:3005/api/friends').then(res => {
             this.setState({data:res.data})
          })
         }  
+
 
         confirmFriends(){
             axios.get('http://192.168.3.139:3005/api/confirm').then(res => {

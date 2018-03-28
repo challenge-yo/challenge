@@ -11,19 +11,19 @@ class FriendsCard extends Component {
     }
 
     addFriend() {
-        axios.post(`http://192.168.3.139:3005/api/addfriend`, {
+        axios.post(`http://172.19.245.84:3005/api/addfriend`, {
             id: this.props.id, id2: this.props.id2
         }).then(res => { console.warn('You got so many friends!') })
     }
 
     confirmFriend() {
-        axios.post(`http://192.168.3.139:3005/api/confirmfriend`, {
+        axios.post(`http://172.19.245.84:3005/api/confirmfriend`, {
             id: this.props.id, id2: this.props.id2
         }).then(res => { console.warn('You confirmed your friend!') })
     }
 
     declineFriend() {
-        axios.post(`http://192.168.3.139:3005/api/declinefriend`, {
+        axios.post(`http://172.19.245.84:3005/api/declinefriend`, {
             id: this.props.id, id2: this.props.id2
         }).then(res => { console.warn('You have enough friends!') })
     }
